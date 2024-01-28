@@ -1,12 +1,16 @@
 
 export default function Characters(props) {
 
-    const { characters } = props;
+    const { characters, setCharacters } = props;
+
+    const resetCharacters = () => {
+        setCharacters(null);
+    }
 
     return (
         <div className="character">
             <h1>Personajes</h1>
-            <span className="back-home">Volver a la home</span>
+            <span className="back-home" onClick={resetCharacters}>Volver a la home</span>
             <div className="container-characters">
                 {characters.map((character, index) => (
                     <div className="character-container" key={index}>
@@ -40,6 +44,7 @@ export default function Characters(props) {
                     </div>
                 ))}
             </div>
+            <span className="back-home" onClick={resetCharacters}>Volver al home</span>
         </div>
     )
 }
